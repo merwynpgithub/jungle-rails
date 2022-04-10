@@ -56,4 +56,17 @@ class OrdersController < ApplicationController
     order
   end
 
+  def show_orders
+    enhanced_orders.each do |entry|
+      product = entry[:product_id]
+      quantity = entry[:quantity]
+      item_price = entry[:item_price_cents]
+      total_price = entry[:total_price_cents]
+    end
+  end
+
+  def show_orders_for_id
+    @orders_for_id = Order.joins(:line_items).where("(order_id) = ?",params[:id])
+  end
+
 end

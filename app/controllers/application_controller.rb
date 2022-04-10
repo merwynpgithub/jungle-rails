@@ -29,4 +29,14 @@ class ApplicationController < ActionController::Base
     cookies[:cart]
   end
 
+  def show_orders_for_id
+    
+    # q = Apartment.joins(:towers).select('apartments.id, apartments.name, towers.id as t_id, towers.name as t_name')
+    # q.first.t_id
+    # q.first.t_name
+    
+    @orders_for_id = Order.joins(:line_items).where("(order_id) = ?",params[:id])
+  end
+  helper_method :show_orders_for_id
+
 end

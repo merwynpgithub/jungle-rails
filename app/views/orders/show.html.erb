@@ -4,8 +4,26 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th colspan="2">Product</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% show_orders_for_id.each do |item| %>
+        <%= show_orders_for_id.inspect %>
+        <%= render 'item' %>
+      <% end %>
+    </tbody>
+    
+  </table>
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <h4>Confirmation sent to <%= @order.email %></h4>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>

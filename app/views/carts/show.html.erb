@@ -8,7 +8,7 @@
     <% if enhanced_cart.length == 0 %>
       <div class="alert alert-info">
         <h3><strong>Your cart</strong> is empty.</h3>
-        <h4><a href="/">Home Page</a></h4>
+        <h4><%= link_to "Start Shopping", root_path, class: 'btn btn-lg btn-primary' %></h4>
       </div>
     <%else %>
       <table class="table table-bordered">
