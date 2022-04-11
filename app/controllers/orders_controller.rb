@@ -65,8 +65,4 @@ class OrdersController < ApplicationController
     end
   end
 
-  def show_orders_for_id
-    @orders_for_id = Order.joins(:line_items).where("(order_id) = ?",params[:id])
-  end
-
 end

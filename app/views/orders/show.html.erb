@@ -15,10 +15,27 @@
     </thead>
     <tbody>
       <% show_orders_for_id.each do |item| %>
-        <%= show_orders_for_id.inspect %>
-        <%= render 'item' %>
+        <%= render 'item', 
+        price: item[:item_price_cents], 
+        quantity: item[:quantity], 
+        name: item[:name],
+        description: item[:description],
+        image: item[:image],
+        img_id: item[:product_id],
+        category_id: item[:category_id]
+        %>
       <% end %>
     </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="4">
+          TOTAL:
+        </th>
+        <th>
+          <%= number_to_currency(@order.total_cents / 100) %>
+        </th>
+      </tr>
+    </tfoot>
     
   </table>
   <div class="order-summary jumbotron">

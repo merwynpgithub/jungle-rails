@@ -1,19 +1,21 @@
 <tr>
   <td>
-    product image
+  <% source = "/uploads/product/image/" + img_id.to_s + "/" + "tiny_" + image %>
+  <% alternate = "Tiny" + image %>
+  <img src=<%= source %> alt=<%= alternate %>>
   </td>
   <td>
-    <h4>product.name</h4>
+    <h4><%= name %></h4>
     <br>
-    <p>product.description</p>
+    <p><%= description %></p>
   </td>
   <td>
-    number_to_currency(product.price)
+  <%= number_to_currency(price / 100) %>
   </td>
   <td>
-    quantity 
+    <%= quantity %> 
   </td>
   <td>
-   number_to_currency(product.price * quantity)
+   <%= number_to_currency(price * quantity / 100) %>
   </td>
 </tr>
