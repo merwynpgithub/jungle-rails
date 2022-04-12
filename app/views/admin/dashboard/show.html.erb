@@ -1,5 +1,33 @@
-<h1>Admin::Dashboard#show</h1>
-<% product_count = @product_count %>
+<h1>Admin Dashboard</h1>
+<% product_count = @product_count.to_i %>
 <% category_count = @category_count %>
-<p><%= product_count %></p>
-<p><%= category_count %></p>
+<% products = @products %>
+
+<div class="panel panel-default products">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Product</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Qty Remaining</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% product_count.times do |i| %>
+        <%= render 'partial', 
+          name: products[i][:name],
+          category: @products[i].category.name,
+          price: products[i][:price_cents],
+          quantity: products[i][:quantity],
+          id: products[i][:id],
+          count: i,
+          cat_id: products[i][:category_id]
+        %>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
