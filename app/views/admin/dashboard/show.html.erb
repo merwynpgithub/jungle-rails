@@ -17,7 +17,7 @@
       </thead>
       <tbody>
         <% product_count.times do |i| %>
-        <%= render 'partial', 
+        <%= render 'count', 
           name: products[i][:name],
           category: @products[i].category.name,
           price: products[i][:price_cents],
