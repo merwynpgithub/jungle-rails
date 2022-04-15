@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # This route will be render a form to register new user.
   get '/register' => 'users#new'
+  post '/register' => 'users#create'
 
   namespace :admin do
     root to: 'dashboard#show'
