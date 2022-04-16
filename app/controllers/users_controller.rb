@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
+      flash[:alert] = "Unable to register. Please enter all the fields."
       redirect_to '/register'
     end
   end
