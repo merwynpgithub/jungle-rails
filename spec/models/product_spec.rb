@@ -21,5 +21,12 @@ RSpec.describe Product, type: :model do
       product_name = Product.new(name: nil)
       expect(product_name).to_not be_valid
     end
+
+    it 'should validate product price' do
+      product = Product.new(price_cents: nil)
+      expect(product).to_not be_valid
+    end
+
+    
   end
 end
