@@ -5,6 +5,18 @@ RSpec.describe Product, type: :model do
   
   describe 'Validations' do
     # validation tests/examples here
+    it 'should validate a product with valid fields' do
+      cat2 = Category.find_or_create_by! name: 'Electronics'
+
+      new_product = cat2.products.create!({
+        name:  'Groovy Ball',
+        description: 'Glowing Ball',
+        quantity: 2,
+        price: 15
+      })
+      expect(new_product).to be_valid
+    end
+
     it 'should validate product name' do
       product_name = Product.new(name: nil)
       expect(product_name).to_not be_valid
