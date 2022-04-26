@@ -27,6 +27,10 @@ RSpec.describe Product, type: :model do
       expect(product).to_not be_valid
     end
 
+    it 'should validate product quantity' do
+      product = Product.new(quantity: nil)
+      expect(product).to_not be_valid
+    end
     
   end
 end
